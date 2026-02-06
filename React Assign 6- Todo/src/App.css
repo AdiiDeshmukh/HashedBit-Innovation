@@ -1,0 +1,53 @@
+.app-container {
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f7f6;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  background: white;
+  margin: 10px 0;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border-left: 5px solid #4CAF50;
+}
+
+.delete-btn {
+  background-color: #ff4d4d;
+  padding: 5px 10px;
+}
