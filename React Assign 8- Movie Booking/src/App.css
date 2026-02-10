@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1a;
+  background-color: #ffffff;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+}
+
+.page-wrapper-gray {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.padding-y {
+  padding: 60px 20px;
+}
+/* 
+.home-header {
+  background-color: #723591;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.brand-name {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.brand-tagline {
+  margin-top: 8px;
+  opacity: 0.9;
+} */
+
+.main-content {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.movie-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  background: white;
+}
+
+.card-image-box {
+  position: relative;
+  height: 256px;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #ca8a04;
+}
+
+.card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.card-genre {
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.simple-nav {
+  background: white;
+  padding: 16px 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.nav-back-link {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.details-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.details-card {
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 768px) {
+  .details-card { flex-direction: row; }
+  .details-image-section { width: 33.333%; }
+  .details-info-section { width: 66.666%; }
+}
+
+.details-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details-info-section {
+  padding: 32px;
+}
+
+.details-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.details-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.badge-indigo { background: #e0e7ff; color: #3730a3; padding: 4px 12px; border-radius: 99px; font-size: 0.875rem; }
+.badge-gray { background: #f3f4f6; color: #374151; padding: 4px 12px; border-radius: 99px; font-size: 0.875rem; }
+
+.details-rating { font-size: 1.25rem; font-weight: bold; color: #ca8a04; margin-bottom: 16px; }
+.details-desc { color: #4b5563; line-height: 1.6; margin-bottom: 24px; }
+.details-price { font-size: 1.5rem; font-weight: bold; margin-bottom: 24px; }
+
+.form-card {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+.form-header-title { font-size: 1.5rem; font-weight: bold; margin-top: 16px; }
+.form-movie-selection { font-size: 1.25rem; color: #4f46e5; font-weight: 600; margin-bottom: 24px; }
+
+.input-group { margin-bottom: 16px; }
+.input-group label { display: block; font-weight: 500; margin-bottom: 6px; color: #374151; }
+.input-group input { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; outline-color: #4f46e5; }
+
+.ticket-container { width: 100%; max-width: 400px; text-align: center; }
+.success-icon { width: 64px; height: 64px; background: #d1fae5; color: #059669; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 32px; font-weight: bold; }
+.success-title { font-size: 1.5rem; font-weight: bold; }
+.success-subtitle { color: #6b7280; margin-bottom: 32px; }
+
+.ticket-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 25px rgba(0,0,0,0.1); border: 1px solid #f3f4f6; }
+.ticket-header { background: #4f46e5; padding: 24px; }
+.ticket-header-text { color: white; font-weight: bold; }
+
+.ticket-body { padding: 32px; }
+.ticket-label-center { color: #9ca3af; font-size: 12px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.ticket-id-value { font-family: monospace; font-size: 24px; font-weight: bold; color: #4f46e5; margin-bottom: 24px; }
+
+.ticket-main-info { border-top: 1px solid #f9fafb; padding-top: 24px; margin-bottom: 24px; text-align: left; }
+.ticket-label { color: #9ca3af; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+.ticket-movie-name { font-size: 1.25rem; font-weight: bold; margin-top: 4px; }
+
+.ticket-grid { display: flex; flex-direction: column; gap: 16px; text-align: left; padding-top: 24px; border-top: 1px solid #f9fafb; }
+.ticket-value { font-weight: 600; color: #1f2937; }
+
+.ticket-footer-price { margin-top: 24px; padding-top: 24px; border-top: 1px solid #f9fafb; }
+.ticket-price-value { font-size: 1.5rem; font-weight: bold; }
+
+.ticket-bottom-border { background: #f9fafb; padding: 16px; border-top: 1px dashed #d1d5db; }
+.ticket-note { font-size: 11px; color: #9ca3af; }
+
+.btn-primary { background: #4f46e5; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; display: inline-block; font-weight: 600; margin-top: 10px; border: none; }
+.btn-success { background: #059669; color: white; padding: 12px 32px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; border: none; }
+.btn-primary-large { width: 100%; background: #4f46e5; color: white; padding: 16px; border-radius: 8px; font-weight: bold; font-size: 1.125rem; border: none; cursor: pointer; }
+.btn-dark-full { display: block; width: 100%; background: #111827; color: white; padding: 16px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 24px; }
+
+.error-container { padding: 40px; text-align: center; }
