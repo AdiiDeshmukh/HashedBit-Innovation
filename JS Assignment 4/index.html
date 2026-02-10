@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Assignment 4 - Extended</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-theme {
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+        }
+
+        .section {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background: #f0f0f0;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        #dynamic_text {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        #text-container {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px dashed #aaa;
+            min-height: 50px;
+            font-size: 55px; 
+        }
+
+        #css-props {
+            background: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            color: #333;
+            font-family: monospace;
+            min-height: 20px;
+        }
+
+        .dark-theme #css-props {
+            background: #333;
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JS Assignment 4</h1>
+
+    <div class="section">
+        <h3>1. JS DOM Assignment - Dark Theme</h3>
+        <button id="theme_btn">Switch to Dark Mode</button>
+    </div>
+
+    <div class="section" id="container">
+        <h3>2. JS DOM Assignment - Div Creation</h3>
+        <button onclick="createNewDiv()">Create New Div</button>
+    </div>
+
+    <div class="section">
+        <h3>3. JS DOM Assignment - Hide Show Para</h3>
+        <p id="text_para">This is a secret paragraph that you can hide or show!</p>
+        <button id="toggle_para">Hide Paragraph</button>
+    </div>
+
+    <div class="section">
+        <h3>4. JS DOM Assignment - Dynamic CSS</h3>
+        <p id="dynamic_text">Hover over me to see the style change!</p>
+    </div>
+
+    <div class="section">
+        <h3>5. JS DOM Assignment - Style Editor</h3>
+        
+        <div class='text-here' id='text-container'>This is some example text</div>
+
+        <label for="colorbox">Text Color:</label>
+        <input type="text" id="colorbox" placeholder="e.g. Red or #ff0000">
+        <button id="colorchange">Change Colour</button>
+        
+        <br><br>
+
+        <label for="fontsize">Font Size:</label>
+        <input type="range" id="fontsize" min="10" max="100" value="55">
+        
+        <br><br>
+
+        <button id="italic" class="stylebt">Italics</button>
+        <button id="underline" class="stylebt">Underline</button>
+        <button id="bold" class="stylebt">Bold</button>
+
+        <br><br>
+
+        <label for="list">Font Family:</label>
+        <select id="list">
+            <option value="serif">Serif</option>
+            <option value="sans-serif">Sans-Serif</option>
+            <option value="monospace">Monospace</option>
+            <option value="cursive">Cursive</option>
+            <option value="fantasy">Fantasy</option>
+        </select>
+
+        <br><br>
+
+        <button id="getstyle">Get CSS</button>
+
+        <p><strong>Generated CSS:</strong></p>
+        <p id="css-props"></p>
+    </div>
+
+    <script>
+        const themeBtn = document.getElementById("theme_btn");
+        themeBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-theme");
+            themeBtn.innerText = document.body.classList.contains("dark-theme") ? "Switch to Light Mode" : "Switch to Dark Mode";
+        });
+
+        function createNewDiv() {
+            const newDiv = document.createElement("div");
+            newDiv.innerText = "I am a new dynamic div!";
+            newDiv.style.marginTop = "10px";
+            newDiv.style.padding = "10px";
+            newDiv.style.borderLeft = "5px solid #007bff";
+            newDiv.style.backgroundColor = "#e7f3ff";
+            newDiv.style.color = "#000";
+            document.getElementById("container").appendChild(newDiv);
+        }
+
+        const toggleParaBtn = document.getElementById("toggle_para");
+        const textPara = document.getElementById("text_para");
+        toggleParaBtn.addEventListener("click", () => {
+            if (textPara.style.display === "none") {
+                textPara.style.display = "block";
+                toggleParaBtn.innerText = "Hide Paragraph";
+            } else {
+                textPara.style.display = "none";
+                toggleParaBtn.innerText = "Show Paragraph";
+            }
+        });
+
+        const dynamicText = document.getElementById("dynamic_text");
+        dynamicText.addEventListener("mouseover", () => {
+            dynamicText.style.color = "red";
+            dynamicText.style.fontSize = "24px";
+            dynamicText.style.fontWeight = "bold";
+        });
+        dynamicText.addEventListener("mouseout", () => {
+            dynamicText.style.color = "";
+            dynamicText.style.fontSize = "16px";
+            dynamicText.style.fontWeight = "normal";
+        });
+
+        const textContainer = document.getElementById('text-container');
+        const colorInput = document.getElementById('colorbox');
+        const colorBtn = document.getElementById('colorchange');
+        const fontSizeSlider = document.getElementById('fontsize');
+        const italicBtn = document.getElementById('italic');
+        const underlineBtn = document.getElementById('underline');
+        const boldBtn = document.getElementById('bold');
+        const fontDropdown = document.getElementById('list');
+        const getStyleBtn = document.getElementById('getstyle');
+        const cssPropsDisplay = document.getElementById('css-props');
+
+        colorBtn.addEventListener('click', () => {
+            textContainer.style.color = colorInput.value;
+        });
+
+        fontSizeSlider.addEventListener('input', () => {
+            textContainer.style.fontSize = fontSizeSlider.value + "px";
+        });
+
+        italicBtn.addEventListener('click', () => {
+            textContainer.style.fontStyle = (textContainer.style.fontStyle === "italic") ? "normal" : "italic";
+        });
+
+        underlineBtn.addEventListener('click', () => {
+            textContainer.style.textDecoration = (textContainer.style.textDecoration === "underline") ? "none" : "underline";
+        });
+
+        boldBtn.addEventListener('click', () => {
+            textContainer.style.fontWeight = (textContainer.style.fontWeight === "bold") ? "normal" : "bold";
+        });
+
+        fontDropdown.addEventListener('change', () => {
+            textContainer.style.fontFamily = fontDropdown.value;
+        });
+
+        getStyleBtn.addEventListener('click', () => {
+            const color = colorInput.value || "black";
+            const size = textContainer.style.fontSize || "55px";
+            const family = fontDropdown.value;
+            const weight = textContainer.style.fontWeight || "normal";
+            const style = textContainer.style.fontStyle || "normal";
+            const decoration = textContainer.style.textDecoration || "none";
+
+            cssPropsDisplay.innerText = `color: ${color}; font-size: ${size}; font-family: ${family}; font-weight: ${weight}; font-style: ${style}; text-decoration: ${decoration};`;
+        });
+    </script>
+</body>
+</html>
