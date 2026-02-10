@@ -33,12 +33,15 @@ To run the Movie Booking System locally on your machine:
 
    Install the dependencies:
 
-```bash```
-npm install
+bash
+```npm install```
+
 Start the development server:
 
-```bash```
-npm run dev
+
+bash
+```npm run dev```
+
 Open your browser: Visit http://localhost:5173.
 
 🧠 Concepts Demonstrated
