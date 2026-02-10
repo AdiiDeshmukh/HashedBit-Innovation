@@ -23,20 +23,6 @@ The projects are organized by milestone, representing a clear progression in my 
 
 ---
 
-## 📽️ Featured Project: Movie Booking System
-
-This is my capstone project for **Assignment 8**. It demonstrates a real-world flow for theater ticket booking.
-
-### Key Functionalities
-* **Dynamic Movie List:** Renders 20 movies with ratings and genres.
-* **Booking Flow:** 1. Select a movie from the grid.
-  2. View detailed descriptions and ratings.
-  3. Fill out the booking form with validation.
-  4. Receive a unique alphanumeric Booking ID on the confirmation ticket.
-* **Storage:** Uses `sessionStorage` to handle data between routes without a backend.
-
----
-
 ## 🛠️ How to Run the React App
 
 To run the Movie Booking System locally on your machine:
@@ -59,8 +45,6 @@ Open your browser: Visit http://localhost:5173.
 React Hooks: useState for form data and useEffect for page redirects.
 
 React Router: BrowserRouter, Routes, and Route for navigation.
-
-Tailwind CSS: Utility-first styling for a professional dark-themed UI.
 
 Logic: Custom alphanumeric ID generation using Math.random().
 
