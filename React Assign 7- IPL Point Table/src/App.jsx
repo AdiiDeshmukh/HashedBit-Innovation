@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
   const [teams, setTeams] = useState([]);
@@ -8,8 +9,7 @@ function App() {
     fetch('https://my-json-server.typicode.com/FreSauce/json-ipl/data')
       .then(res => res.json())
       .then(data => {
-        // Sort Ascending by NRR
-        const sorted = data.sort((a, b) => a.NRR - b.NRR);
+        const sorted = data.sort((a, b) => b.Points - a.Points);
         setTeams(sorted);
         setLoading(false);
       })
@@ -19,12 +19,12 @@ function App() {
       });
   }, []);
 
-  if (loading) return <h2>Loading IPL Data...</h2>;
+  if (loading) return <h2 className="loading-text">Loading IPL Data...</h2>;
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="container">
       <h1>IPL 2022 Points Table</h1>
-      <table border="1" style={{ width: '100%', borderCollapse: 'collapse' }}>
+      <table className="ipl-table">
         <thead>
           <tr>
             <th>Team</th>
@@ -36,8 +36,8 @@ function App() {
           {teams.map((team, index) => (
             <tr key={index}>
               <td>{team.Team}</td>
-              <td>{team.NRR}</td>
-              <td>{team.Points}</td>
+              <td className="nrr-column">{team.NRR}</td>
+              <td className="points-column">{team.Points}</td>
             </tr>
           ))}
         </tbody>
